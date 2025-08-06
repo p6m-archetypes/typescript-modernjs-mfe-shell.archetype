@@ -1,0 +1,9 @@
+---
+description: "TypeScript Modern.js Basic"
+authors: ["Jimmie Fulton <jimmie@ybor.ai>"]
+languages: ["TypeScript", "JavaScript"]
+frameworks: ["Modern.js", "React"]
+tags: ["modern-js", "react", "typescript", "frontend", "tailwind"]
+
+requires:
+  archetect: "2.0.0"
