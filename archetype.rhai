@@ -12,13 +12,13 @@ context += prompt("Project Title:", "project-title", #{
 
 context += prompt("Project Prefix:", "project-prefix", #{
   defaults_with: render("{{ project-title | kebab_case }}", context),
-  help: "The project name; suffix '-frontend' will be appended automatically",
+  help: "The project name; suffix '-shell' will be appended automatically",
   cases: [
     CasedIdentityCasedValue(PROGRAMMING_CASES),
   ], 
 });
 
-context += set("project-suffix", "frontend");
+context += set("project-suffix", "shell");
 
 context += set("project-name", render("{{ project-prefix }}-{{ project-suffix }}", context), #{
   cases: [

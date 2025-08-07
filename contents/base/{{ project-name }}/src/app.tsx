@@ -1,10 +1,17 @@
-import { createBrowserRouter, RouterProvider } from '@modern-js/runtime/router';
-import { routes } from './router';
+import { defineConfig } from '@modern-js/runtime';
 
-const router = createBrowserRouter(routes);
-
-function App() {
-  return <RouterProvider router={router} />;
-}
-
-export default App;
+export default defineConfig({
+  masterApp: {
+    manifest: {
+      getAppList: async () => {
+        return [
+          //   {
+          //     name: 'app1',
+          //     entry: 'http://localhost:8081/index.js',
+          //     activeWhen: path => path.includes('mfe1'),
+          //   },
+        ];
+      },
+    },
+  },
+});

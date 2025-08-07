@@ -1,9 +1,9 @@
 ---
-description: "TypeScript Modern.js Basic"
+description: "TypeScript Modern.js Micro Frontend Shell"
 authors: ["Jimmie Fulton <jimmie@ybor.ai>"]
 languages: ["TypeScript", "JavaScript"]
 frameworks: ["Modern.js", "React"]
-tags: ["modern-js", "react", "typescript", "frontend", "tailwind"]
+tags: ["modern-js", "react", "typescript", "frontend", "mfe", "module-federation", "shell", "tailwind"]
 
 requires:
   archetect: "2.0.0"

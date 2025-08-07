@@ -1,4 +1,11 @@
+node_modules
 .git
-.github
-Dockerfile
+.gitignore
+dist
+*.log
 README.md
+.DS_Store
+Thumbs.db
+.env*
+.next
+.vercel

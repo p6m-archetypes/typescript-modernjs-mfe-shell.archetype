@@ -1,32 +1,52 @@
 {
   "name": "{{ project-name }}",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
+    "reset": "npx rimraf node_modules ./**/node_modules",
     "dev": "modern dev",
     "build": "modern build",
+    "deploy": "modern deploy",
     "start": "modern start",
-    "lint": "modern lint"
+    "serve": "modern serve",
+    "new": "modern new",
+    "lint": "biome check",
+    "fix": "biome format --write",
+    "prepare": "simple-git-hooks",
+    "upgrade": "modern upgrade"
+  },
+  "engines": {
+    "node": ">=16.18.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --files-ignore-unknown=true"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "dependencies": {
-    "@modern-js/app-tools": "^2.0.0",
-    "@modern-js/runtime": "^2.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@opentelemetry/api": "^1.7.0"
+    "@modern-js/plugin-garfish": "^2.68.7",
+    "@modern-js/plugin-state": "2.68.7",
+    "@modern-js/runtime": "2.68.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "@eslint/js": "^9",
-    "@typescript-eslint/eslint-plugin": "^8",
-    "@typescript-eslint/parser": "^8",
-    "eslint-plugin-react": "^7.37.0",
-    "eslint-plugin-react-hooks": "^5.0.0"
+    "@biomejs/biome": "1.9.4",
+    "@modern-js/app-tools": "2.68.7",
+    "@modern-js/tsconfig": "2.68.7",
+    "@types/jest": "~29.2.4",
+    "@types/node": "~18.11.9",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "~18.3.1",
+    "autoprefixer": "^10.4.20",
+    "lint-staged": "~15.4.0",
+    "postcss": "^8.5.0",
+    "rimraf": "^6.0.1",
+    "simple-git-hooks": "^2.11.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.7.3"
   }
 }
+
