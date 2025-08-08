@@ -8,14 +8,15 @@
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "lineEnding": "lf"
   },
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
       "arrowParentheses": "asNeeded",
       "jsxQuoteStyle": "double",
-      "lineWidth": 80
+      "lineWidth": 120
     }
   },
   "linter": {
@@ -24,6 +25,9 @@
       "recommended": true,
       "suspicious": {
         "noDuplicateFontNames": "off"
+      },
+      "a11y": {
+        "useKeyWithClickEvents": "off"
       }
     }
   },
@@ -35,4 +39,3 @@
     "ignore": [".vscode/**/*", "node_modules/**/*", "dist/**/*"]
   }
 }
-

@@ -1,17 +1,11 @@
-import { defineConfig } from '@modern-js/runtime';
+import { router } from '@/routing/router';
+import { RouterProvider } from '@modern-js/runtime/router';
+import { StrictMode } from 'react';
 
-export default defineConfig({
-  masterApp: {
-    manifest: {
-      getAppList: async () => {
-        return [
-          //   {
-          //     name: 'app1',
-          //     entry: 'http://localhost:8081/index.js',
-          //     activeWhen: path => path.includes('mfe1'),
-          //   },
-        ];
-      },
-    },
-  },
-});
+export default function App() {
+  return (
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
+}

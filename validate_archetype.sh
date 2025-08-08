@@ -171,15 +171,15 @@ validate_template_substitution() {
     fi
     
     # Check that title was substituted in routes/page.tsx
-    if [ -f "src/routes/page.tsx" ]; then
-        if grep -q "$TEST_PROJECT_TITLE" src/routes/page.tsx; then
-            log "${GREEN}Project title correctly substituted in routes/page.tsx${NC}"
+    if [ -f "src/pages/home.tsx" ]; then
+        if grep -q "$TEST_PROJECT_TITLE" src/pages/home.tsx; then
+            log "${GREEN}Project title correctly substituted in pages/home.tsx${NC}"
         else
-            log "${RED}Project title not correctly substituted in routes/page.tsx${NC}"
+            log "${RED}Project title not correctly substituted in pages/home.tsx${NC}"
             substitution_errors=1
         fi
     else
-        log "${RED}src/routes/page.tsx not found${NC}"
+        log "${RED}src/pages/home.tsx not found${NC}"
         substitution_errors=1
     fi
     
@@ -200,10 +200,9 @@ validate_project_structure() {
         "modern.config.ts"
         "tsconfig.json"
         "biome.json"
-        "postcss.config.js"
         "Dockerfile"
-        "src/app.tsx"
-        "src/styles/globals.css"
+        "src/App.tsx"
+        "module-federation.config.ts"
     )
     
     for file in "${required_files[@]}"; do
@@ -218,8 +217,8 @@ validate_project_structure() {
     # Check essential directories
     local required_dirs=(
         "src"
-        "src/routes"
-        "src/styles"
+        "src/pages"
+        "src/routing"
     )
     
     for dir in "${required_dirs[@]}"; do
