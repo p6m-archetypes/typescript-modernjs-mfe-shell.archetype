@@ -26,9 +26,9 @@ context += set("project-name", render("{{ project-prefix }}-{{ project-suffix }}
   ],
 });
 
-context += prompt("Development Port:", "port", #{
-  defaults: "3000",
-  help: "Port for the development server",
+context += prompt("Port:", "port", #{
+  defaults_with: "3000",
+  help: "Port for the MFE app (shell should use 3000, apps use 3001+)",
 });
 
 render(Directory("contents/base"), context);
