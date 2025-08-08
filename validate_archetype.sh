@@ -114,8 +114,8 @@ generate_test_project() {
     fi
     
     # Generate the project using render command
-    log "${YELLOW}Running: archetect render $SCRIPT_DIR --answer-file test_answers.yaml${NC}"
-    if archetect render "$SCRIPT_DIR" --answer-file test_answers.yaml >> "$VALIDATION_LOG" 2>&1; then
+    log "${YELLOW}Running: archetect render $SCRIPT_DIR -U --answer-file test_answers.yaml${NC}"
+    if archetect render "$SCRIPT_DIR" -U --answer-file test_answers.yaml >> "$VALIDATION_LOG" 2>&1; then
         test_result 0 "Archetype generation successful"
     else
         test_result 1 "Archetype generation failed"
@@ -336,7 +336,7 @@ test_docker_build() {
         
         # Test running the container
         log "${YELLOW}Testing Docker container startup...${NC}"
-        if docker run -d --name "${TEST_PROJECT_NAME}-test" -p 3001:8080 "$TEST_PROJECT_NAME" >> "$VALIDATION_LOG" 2>&1; then
+        if docker run -d --name "${TEST_PROJECT_NAME}-test" -p 3001:3000 "$TEST_PROJECT_NAME" >> "$VALIDATION_LOG" 2>&1; then
             
             # Wait for container to be ready
             local max_wait=30

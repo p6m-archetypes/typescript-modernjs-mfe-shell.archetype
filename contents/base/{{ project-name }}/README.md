@@ -18,7 +18,7 @@ pnpm install
 pnpm dev
 ```
 
-The application will be available at http://localhost:{{ dev-port }}
+The application will be available at http://localhost:{{ port }}
 
 ### Building
 
@@ -80,7 +80,7 @@ Other micro frontends can consume this shell's modules:
 export default defineConfig({
   runtime: {
     remotes: {
-      shell: 'http://localhost:{{ dev-port }}/remoteEntry.js',
+      shell: 'http://localhost:{{ port }}/remoteEntry.js',
     },
   },
 });
@@ -102,7 +102,7 @@ Build and run with Docker:
 docker build -t {{ project-name }} .
 
 # Run container
-docker run -p {{ prod-port }}:{{ prod-port }} {{ project-name }}
+docker run -p {{ port }}:{{ port }} {{ project-name }}
 ```
 
 ## Quick Demo
