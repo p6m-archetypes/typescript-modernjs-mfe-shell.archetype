@@ -1,11 +1,17 @@
 import { loadRemote } from '@module-federation/modern-js/runtime';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 
 interface ContentHandlerProps {
   name: string;
   title: string;
   componentPath: string;
 }
+
+const containerStyle: CSSProperties = { padding: '24px' };
+const titleStyle: CSSProperties = { fontSize: '32px', fontWeight: 'bold', marginBottom: '16px' };
+const descriptionStyle: CSSProperties = { color: '#666', marginBottom: '24px' };
+const loadingStyle: CSSProperties = { textAlign: 'center', padding: '32px 0' };
+const errorStyle: CSSProperties = { textAlign: 'center', padding: '32px 0', color: 'red' };
 
 export default function ContentHandler({ name, title, componentPath }: ContentHandlerProps) {
   const [Component, setComponent] = useState<React.ComponentType | null>(null);
@@ -25,17 +31,17 @@ export default function ContentHandler({ name, title, componentPath }: ContentHa
   }, [componentPath]);
 
   return (
-    <div style={{ padding: '24px' }}>
-      <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '16px' }}>{title}</h1>
-      <p style={{ color: '#666', marginBottom: '24px' }}>
+    <div style={containerStyle}>
+      <h1 style={titleStyle}>{title}</h1>
+      <p style={descriptionStyle}>
         This is the content for the <i>{name}</i> page.
       </p>
       {loading ? (
-        <div style={{ textAlign: 'center', padding: '32px 0' }}>Loading...</div>
+        <div style={loadingStyle}>Loading...</div>
       ) : Component ? (
         <Component />
       ) : (
-        <div style={{ textAlign: 'center', padding: '32px 0', color: 'red' }}>Failed to load component</div>
+        <div style={errorStyle}>Failed to load component</div>
       )}
     </div>
   );
