@@ -10,6 +10,9 @@ export default defineConfig({
   runtime: {
     router: true,
   },
+  server: {
+    port: {{ port }},
+  },
   html: {
     favicon: 'https://www.google.com/favicon.ico',
   },
