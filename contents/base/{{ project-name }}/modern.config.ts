@@ -20,7 +20,7 @@ export default defineConfig({
     appTools({
       bundler: 'rspack',
     }),
-    moduleFederationPlugin(),
     routerPlugin(),
+    moduleFederationPlugin(),
   ],
 });
