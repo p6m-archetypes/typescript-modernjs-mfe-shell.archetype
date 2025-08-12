@@ -21,10 +21,11 @@ This is an [Archetect](https://archetect.github.io/) archetype for building Mode
 Generate a new project from this archetype:
 
 ```sh
-archetect render git@github.com:p6m-archetypes/typescript-modernjs-mfe-shell.archetype.git#v1
+archetect render https://github.com/p6m-archetypes/typescript-modernjs-mfe-shell.archetype.git#v1
 ```
 
 This creates a Modern.js shell application ready to:
+
 - Host multiple micro frontend applications
 - Use Module Federation for dynamic loading
 - Deploy to Kubernetes clusters
