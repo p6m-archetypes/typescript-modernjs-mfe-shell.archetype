@@ -15,9 +15,9 @@ spec:
     image: '{{ project-name }}-server:latest' # Set to a digest in the .platform repo patch
     ports:
       - protocol: http
-        port: 3000
+        port: {{port}}
     readinessProbe:
-      port: 3000
+      port: {{port}}
       path: /
   networking:
     ingress:
