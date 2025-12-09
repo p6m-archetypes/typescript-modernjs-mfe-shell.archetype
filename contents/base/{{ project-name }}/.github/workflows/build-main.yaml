@@ -73,7 +73,7 @@ jobs:
         uses: p6m-actions/platform-application-manifest-dispatch@v1
         with:
           repository: ${{'{'}}{ github.repository }}
-          image-name: ${{'{'}}{ env.GITHUB_REPOSITORY_BASENAME }}
+          image-name: {{ project-name }}
           directory-name: ${{'{'}}{ env.GITHUB_REPOSITORY_BASENAME }}
           environment: "dev"
           digest: ${{'{'}}{ needs.docker-build.outputs.digest }}
