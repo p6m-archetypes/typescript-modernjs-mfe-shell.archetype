@@ -9,7 +9,7 @@ permissions: write-all
 
 env:
   GITHUB_TOKEN: ${{'{'}}{ secrets.GITHUB_TOKEN }}
-  ARTIFACTORY_TOKEN: ${{'{'}}{ secrets.ARTIFACTORY_TOKEN }}
+  ARTIFACTORY_TOKEN: ${{'{'}}{ secrets.P6M_ARTIFACTORY_TOKEN }}
   NODE_OPTIONS: --max_old_space_size=4096
 
 jobs:
@@ -49,7 +49,7 @@ jobs:
           image-name: p6m/application
           registry: artifactory.example.com
           registry-username: ${{'{'}}{ github.actor }}
-          registry-password: ${{'{'}}{ secrets.ARTIFACTORY_TOKEN }}
+          registry-password: ${{'{'}}{ secrets.P6M_ARTIFACTORY_TOKEN }}
           tags: |
             latest
             ${{'{'}}{ steps.get_version.outputs.VERSION }}
