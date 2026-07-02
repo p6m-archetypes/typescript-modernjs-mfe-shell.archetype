@@ -51,7 +51,7 @@ jobs:
 
     with:
       github_ref: ${{'{'}}{ needs.release.outputs.tag }}
-      registry: ${{'{'}}{ vars.ARTIFACTORY_HOSTNAME }}
+      registry: ${{'{'}}{ vars.P6M_ARTIFACTORY_HOSTNAME }}
       image-name: {{ organization-name }}-docker/applications/{{ project-name }}-server
       context: "."
       dockerfile: ./Dockerfile
@@ -64,10 +64,10 @@ jobs:
       # linux-arm-runner: ubuntu-24.04-arm-provisioned
 
     secrets:
-      username: ${{'{'}}{ secrets.ARTIFACTORY_USERNAME }}
-      password: ${{'{'}}{ secrets.ARTIFACTORY_IDENTITY_TOKEN }}
+      username: ${{'{'}}{ secrets.P6M_ARTIFACTORY_USERNAME }}
+      password: ${{'{'}}{ secrets.P6M_ARTIFACTORY_IDENTITY_TOKEN }}
       secrets: |
-        artifactory-token=${{'{'}}{ secrets.ARTIFACTORY_TOKEN }}
+        artifactory-token=${{'{'}}{ secrets.P6M_ARTIFACTORY_TOKEN }}
 
   create-release:
     runs-on: ubuntu-latest
